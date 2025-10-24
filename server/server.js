@@ -5,6 +5,9 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 import authRouter from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import ruangKerjaRoutes from "./routes/ruangKerjaRoutes.js";
+import bangunanRoutes from "./routes/bangunanRoutes.js";
+import asesmenRoutes from "./routes/asesmenRoutes.js";
 
 const app = express();
 const port = process.env.PORT || 5454;
@@ -24,6 +27,9 @@ app.use(cors({
 app.get('/', (req, res) => res.send("API Working ✅"));
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
+app.use("/api/ruangkerja", ruangKerjaRoutes);
+app.use("/api/bangunan", bangunanRoutes);
+app.use("/api/asesmen", asesmenRoutes);
 
 // Start server
 app.listen(port, () => console.log(`🚀 Server started on PORT: ${port}`));
