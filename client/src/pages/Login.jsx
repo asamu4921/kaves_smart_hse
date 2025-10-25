@@ -33,21 +33,21 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center p-8">
-      <img src="/loginhero.svg" alt="login hero" className="w-1/2 max-w-md mb-6 md:mb-0" />
-      <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4">
-        <h2 className="text-2xl font-bold text-center">
-          {isRegister ? "Register" : "Login"}
-        </h2>
+    <div className="min-h-screen flex items-center justify-center">
+      <img src="/loginhero.svg" alt="login hero" className="hidden md:block w-1/3 h-screen object-cover" />
+      <form onSubmit={handleSubmit} className="w-full max-w space-y-4 m-24 p-4">
+        <h1 className="text-4xl font-bold text-center">
+          {isRegister ? "Daftar" : "Login"}
+        </h1>
 
         {isRegister && (
           <input
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder="Nama"
             value={form.name}
             onChange={handleChange}
-            className="border p-2 w-full rounded"
+            className="border p-4 w-full rounded-xl"
           />
         )}
 
@@ -57,31 +57,45 @@ function Login() {
           placeholder="Email"
           value={form.email}
           onChange={handleChange}
-          className="border p-2 w-full rounded"
+          className="border p-4 w-full rounded-xl"
         />
 
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Kata sandi"
           value={form.password}
           onChange={handleChange}
-          className="border p-2 w-full rounded"
+          className="border p-4 w-full rounded-xl"
         />
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full text-lg font-semibold bg-green-600 text-white py-4 rounded hover:bg-green-700 rounded-xl"
         >
-          {isRegister ? "Register" : "Login"}
+          {isRegister ? "Daftar" : "Login"}
         </button>
 
         <p
           onClick={() => setIsRegister(!isRegister)}
-          className="text-center text-blue-600 cursor-pointer underline"
+          className="text-center font-semibold"
         >
-          {isRegister ? "Already have an account? Login" : "No account? Register"}
-        </p>
+          {isRegister ? (
+    <>
+      Sudah punya akun?{" "}
+      <span className="text-green-700 hover:text-green-800 cursor-pointer">
+        Login
+      </span>
+    </>
+  ) : (
+    <>
+      Belum punya akun?{" "}
+      <span className="text-green-700 cursor-pointer">
+        Daftar
+      </span>
+    </>
+  )}
+</p>
 
         {message && <p className="text-center text-sm text-gray-600">{message}</p>}
       </form>
