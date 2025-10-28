@@ -20,7 +20,7 @@ function Login() {
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      credentials: "include", // penting untuk cookie JWT
+      credentials: "include",
       body: JSON.stringify(form),
     });
 
@@ -59,6 +59,7 @@ function Login() {
           onChange={handleChange}
           className="border p-4 w-full rounded-xl"
         />
+      </div>
 
         <input
           type="password"
@@ -97,8 +98,13 @@ function Login() {
   )}
 </p>
 
-        {message && <p className="text-center text-sm text-gray-600">{message}</p>}
-      </form>
+          {message && (
+            <p className="text-center text-sm text-gray-600 mt-4 bg-emerald-50 py-2 rounded">
+              {message}
+            </p>
+          )}
+        </form>
+      </div>
     </div>
   );
 }
