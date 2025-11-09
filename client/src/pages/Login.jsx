@@ -33,7 +33,7 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+     <div className="min-h-screen flex items-center justify-center">
       <img src="/loginhero.svg" alt="login hero" className="hidden md:block w-1/3 h-screen object-cover" />
       <form onSubmit={handleSubmit} className="w-full max-w space-y-4 m-24 p-4">
         <h1 className="text-4xl font-bold text-center">
@@ -59,7 +59,6 @@ function Login() {
           onChange={handleChange}
           className="border p-4 w-full rounded-xl"
         />
-      </div>
 
         <input
           type="password"
@@ -72,39 +71,38 @@ function Login() {
 
         <button
           type="submit"
-          className="w-full text-lg font-semibold bg-green-600 text-white py-4 rounded hover:bg-green-700 rounded-xl"
+          className="w-full text-lg font-semibold bg-green-600 text-white py-4 rounded-xl hover:bg-green-700"
         >
           {isRegister ? "Daftar" : "Login"}
         </button>
 
         <p
           onClick={() => setIsRegister(!isRegister)}
-          className="text-center font-semibold"
+          className="text-center font-semibold cursor-pointer"
         >
           {isRegister ? (
-    <>
-      Sudah punya akun?{" "}
-      <span className="text-green-700 hover:text-green-800 cursor-pointer">
-        Login
-      </span>
-    </>
-  ) : (
-    <>
-      Belum punya akun?{" "}
-      <span className="text-green-700 cursor-pointer">
-        Daftar
-      </span>
-    </>
-  )}
-</p>
-
-          {message && (
-            <p className="text-center text-sm text-gray-600 mt-4 bg-emerald-50 py-2 rounded">
-              {message}
-            </p>
+            <>
+              Sudah punya akun?{" "}
+              <span className="text-green-700 hover:text-green-800">
+                Login
+              </span>
+            </>
+          ) : (
+            <>
+              Belum punya akun?{" "}
+              <span className="text-green-700 hover:text-green-800">
+                Daftar
+              </span>
+            </>
           )}
-        </form>
-      </div>
+        </p>
+
+        {message && (
+          <p className="text-center text-sm text-gray-600 mt-4 bg-emerald-50 py-2 rounded">
+            {message}
+          </p>
+        )}
+      </form>
     </div>
   );
 }
